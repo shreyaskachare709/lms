@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shreyas Library</title>
+    <style>
+    h1{
+       color: aqua;
+     }
+     h2{
+       color: fuchsia;
+     }
+     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body  style="background-color:lightgreen;" text-align="center">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <h3>Add New Data </h3>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="book_name" class="form-label">Book Name</label>
+              <input type="text" class="form-control" id="name" name='book_name' value="{{data.book_name}}">
+            </div>
+            <div class="mb-3">
+              <label for="author_name" class="form-label">Author Name</label>
+              <input type="text" class="form-control" id="author_name" name='author_name'value="{{data.author_name}}">
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" class="form-control" id="price" name='price'value="{{data.price}}">
+            </div>
+           
+            
+            <div class="mb-3">
+              <label for="status">Types of Book:</label>
+
+              <select name="typeofbook" id="status">
+                <option value="NonFiction">Non-Fiction</option>
+                <option value="Edited">Edited</option>
+                <option value="Reference">Reference</option>
+                <option value="Fiction">Fiction</option>
+              </select>
+              <!-- <input type="text" class="form-control" id="Status" name="Status" placeholder=""> -->
+            </div>
+           <button type="submit" class="btn btn-primary">Submit</button>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>

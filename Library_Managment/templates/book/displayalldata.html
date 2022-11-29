@@ -1,0 +1,96 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library Records</title>
+    <style>
+    
+     h1{
+       color: purple;
+     }
+     h2{
+       color: red;
+     }
+     </style>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body style="background-color:papayawhip;" text-align="center">
+
+    <div class="container" align="center">
+      <div class="row">
+        <div class="col-15">
+          <h3>Shreyas Library Records</h3>
+          
+          
+          <div class="">
+            <div>
+              
+            <a href="/book/adddata" class= 'bi bi-person-plus btn btn-warning'>Add More Books </a></div>
+            
+            <div>
+              <br>
+            <a href="/book/ltoh" class='bi bi-arrow-up-square-fill btn btn-primary'> Price Range Low To High</a></div>
+            <div>
+              <br>
+            <a href="/book/htol" class="bi bi-arrow-down-square-fill btn btn-primary"> Price Range High To Low</a></div>
+
+          </div>
+          <br>
+          
+
+
+          <br>
+          <table class="table table-bordered" class="table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Author Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Type of Book</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for d in data %}
+
+              <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.book_name}}</td>
+                <td>{{d.author_name}}</td>
+                <td>{{d.price}}</td>
+                <td>{{d.typeofbook}}</td>
+
+                <td><a href="/book/update/{{d.id}}" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a></td>
+                <td><a href="/book/softdelete/{{d.id}}" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a></td>
+              </tr>
+              {% endfor %}
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Fiction</a></li>
+                  <li><a class="dropdown-item" href="#">Non-Fiction</a></li>
+                  <li><a class="dropdown-item" href="#">Reference</a></li>
+                    <li><a class="dropdown-item" href="#">Edited</a></li>
+                </ul>
+              </div>
+
+            </tbody>
+          </table>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
